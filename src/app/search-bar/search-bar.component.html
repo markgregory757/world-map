@@ -1,0 +1,57 @@
+<div class="search-container">
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      placeholder="Search for a country..."
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="searchCountry()"
+    />
+
+    <button (click)="searchCountry()">
+      Search Country Name
+    </button>
+
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading country data...
+  </div>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="country" class="country-card">
+
+  <h2>
+    {{ country.name }}
+  </h2>
+
+  <p>
+    <strong>Country Code:</strong>
+    {{ country.id }}
+  </p>
+
+  <p>
+    <strong>Region:</strong>
+    {{ country.region.value }}
+  </p>
+
+  <p>
+    <strong>Capital City:</strong>
+    {{ country.capitalCity }}
+  </p>
+
+  <p>
+    <strong>Income Level:</strong>
+    {{ country.incomeLevel.value }}
+  </p>
+
+  <p>
+    <strong>Lending Type:</strong>
+    {{ country.lendingType.value }}
+  </p>
+
+</div>
